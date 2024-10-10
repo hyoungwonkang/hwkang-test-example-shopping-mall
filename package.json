@@ -11,6 +11,9 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
+    "test": "vitest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "eslint": "eslint 'src/**/*.js' 'src/**/*.jsx'"
   },
   "dependencies": {

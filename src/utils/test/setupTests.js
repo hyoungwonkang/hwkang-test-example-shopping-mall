@@ -12,6 +12,10 @@ beforeAll(() => {
 
 afterEach(() => {
   server.resetHandlers();
+=======
+import '@testing-library/jest-dom';
+
+afterEach(() => {
   vi.clearAllMocks();
 });
 
@@ -21,6 +25,9 @@ afterAll(() => {
 });
 
 vi.mock('zustand');
+
+=======
+});
 
 // https://github.com/vitest-dev/vitest/issues/821
 Object.defineProperty(window, 'matchMedia', {
