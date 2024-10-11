@@ -10,6 +10,12 @@ beforeEach(() => {
 beforeAll(() => {
   console.log('root - beforeAll');
 });
+afterEach(() => {
+  console.log('root - afterEach');
+});
+afterAll(() => {
+  console.log('root - afterAll');
+});
 it('className prop으로 설정한 css class가 적용된다.', async () => {
   await render(<TextField className="my-class" />);
 
