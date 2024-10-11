@@ -1,3 +1,18 @@
+import { setupServer } from 'msw/node';
+import '@testing-library/jest-dom';
+
+import { handlers } from '@/__mocks__/handlers';
+
+/* msw */
+export const server = setupServer(...handlers);
+
+beforeAll(() => {
+  server.listen();
+});
+
+afterEach(() => {
+  server.resetHandlers();
+=======
 import '@testing-library/jest-dom';
 
 afterEach(() => {
@@ -6,6 +21,12 @@ afterEach(() => {
 
 afterAll(() => {
   vi.resetAllMocks();
+  server.close();
+});
+
+vi.mock('zustand');
+
+=======
 });
 
 // https://github.com/vitest-dev/vitest/issues/821

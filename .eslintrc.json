@@ -48,11 +48,16 @@
   "overrides": [
     {
       "files": [
+        "__mocks__/**.js",
         "src/utils/test/**.js",
         "src/**/*.spec.js",
         "src/**/*.spec.jsx"
       ],
       "plugins": ["vitest"],
+      "extends": ["plugin:vitest/recommended"],
+      "rules": {
+        "vitest/expect-expect": "off"
+      },
       "rules": {
         "vitest/no-large-snapshots": "error",
         "vitest/no-identical-title": "off",
