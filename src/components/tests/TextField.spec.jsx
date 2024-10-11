@@ -4,17 +4,15 @@ import React from 'react';
 import TextField from '@/components/TextField';
 import render from '@/utils/test/render';
 
-beforeEach(() => {
-  console.log('root - beforeEach');
-});
-beforeAll(() => {
-  console.log('root - beforeAll');
-});
-afterEach(() => {
-  console.log('root - afterEach');
-});
-afterAll(() => {
-  console.log('root - afterAll');
+// *이렇게 하지 말것* 전역 변수를 사용한 조건 처리는 독립성을 보장하지 못하고, 신뢰성이 낮아짐.
+let somecondition = false;
+
+beforeEach(async () => {
+  if (somecondition) {
+    await render(<TextField className="my-class" />);
+  } else {
+    // ...
+  }
 });
 it('className prop으로 설정한 css class가 적용된다.', async () => {
   await render(<TextField className="my-class" />);
@@ -25,9 +23,6 @@ it('className prop으로 설정한 css class가 적용된다.', async () => {
 });
 
 describe('placeholder', () => {
-  beforeEach(() => {
-    console.log('placeholder - beforeEach');
-  });
   it('기본 placeholder "텍스트를 입력해 주세요."가 노출된다.', async () => {
     await render(<TextField />);
 
